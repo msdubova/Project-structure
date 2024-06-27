@@ -15,7 +15,9 @@ func main() {
 	}
 
 	filename := os.Args[1]
-	analyzer := analyzer.New(property.FilenameAnalyzer{}, property.ContentLengthAnalyzer{})
+	analyzer := analyzer.New(
+		analyzer.NewPrefixWrapper(property.FilenameAnalyzer{}, "dev_"),
+		property.ContentLengthAnalyzer{})
 
 	report, err := analyzer.Analyze(filename)
 	if err != nil {
