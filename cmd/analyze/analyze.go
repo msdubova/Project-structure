@@ -25,6 +25,6 @@ func main() {
 	}
 
 	for k, v := range report {
-		fmt.Println("%s\t%v\n", k, v)
+		fmt.Printf("%s\t%v\n", k, v)
 	}
 }
